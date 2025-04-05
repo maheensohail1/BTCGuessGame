@@ -4,9 +4,8 @@
       "frontend",
       "backend"
     ],
-    "scripts": {
-      "start": "npm run start -w backend",
-      "backend:start": "node backend/dist/server.js",
-      "frontend:start": "cd frontend && npm start"
-    }
+    "start": "npm run build:frontend && npm run start:backend",
+    "build:frontend": "cd frontend && npm run build", 
+    "start:backend": "cd backend && npm run start",  
+    "heroku-postbuild": "npm run build:frontend"
   }
