@@ -8,20 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const axios_1 = __importDefault(require("axios"));
+const dbService_1 = require("../services/dbService");
 const router = (0, express_1.Router)();
-router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const response = yield axios_1.default.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
-        res.json({ price: response.data.bitcoin.usd });
-    }
-    catch (error) {
-        res.status(500).json({ error: "Failed to fetch Bitcoin price" });
-    }
+router.get("/:playerId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const { playerId } = req.params;
+    const result = yield dbService_1.dynamoDB.get({
+        TableName: dbService_1.TABLE_NAME,
+        Key: { playerId },
+    }).promise();
+    res.json({ score: ((_a = result.Item) === null || _a === void 0 ? void 0 : _a.score) || 0 });
 }));
 exports.default = router;

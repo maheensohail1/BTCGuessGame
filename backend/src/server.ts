@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import priceRoutes from "./routes/price";
+import path from "path";
 
 dotenv.config();
 
@@ -16,6 +17,14 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+// Serve static files from frontend/dist
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Fallback to index.html for React Router routes
+app.get("*", (_, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+});
 
 app.get("/", (req, res) => {
     res.send("Backend is running! 🚀");
