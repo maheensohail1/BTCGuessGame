@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "heroku-postbuild": "npm run build"
+    "preview": "vite preview"
   },
   "engines": {
     "node": "20.12",
