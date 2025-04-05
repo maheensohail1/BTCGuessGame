@@ -10,6 +10,10 @@
     "preview": "vite preview",
     "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": "20.12",
+    "npm": "10.5"
+  },
   "dependencies": {
     "axios": "^1.8.4",
     "react": "^19.0.0",
