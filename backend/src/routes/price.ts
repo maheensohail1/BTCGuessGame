@@ -4,7 +4,12 @@ import axios from "axios";
 const router = Router();
 
 router.get("/", async (_req: Request, res: Response) => {
-    fetchBTCPrice();
+  const price = await fetchBTCPrice();
+  if (price !== null) {
+    res.json({ price });
+  } else {
+    res.status(503).json({ message: "Service Unavailable" });
+  }
 });
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
