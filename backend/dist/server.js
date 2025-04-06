@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const price_1 = __importDefault(require("./routes/price"));
+const path_1 = __importDefault(require("path"));
 dotenv_1.default.config();
 const guess_1 = __importDefault(require("./routes/guess"));
 //import connectDB from "./services/dbService";
@@ -16,8 +17,11 @@ const app = (0, express_1.default)();
 //connectDB();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
-app.get("/", (req, res) => {
-    res.send("Backend is running! 🚀");
+// Serve static files from frontend/dist
+app.use(express_1.default.static(path_1.default.join(__dirname, "../frontend/dist")));
+// Fallback to index.html for React Router routes
+app.get("/", (_, res) => {
+    res.sendFile(path_1.default.join(__dirname, "../frontend/dist", "index.html"));
 });
 app.use("/guess", guess_1.default);
 app.use("/score", score_1.default);
