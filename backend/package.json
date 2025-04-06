@@ -6,11 +6,15 @@
     "node": "20.12",
     "npm": "10.5"
   },
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config jest.config.ts",
     "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -30,9 +34,11 @@
     "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.0",
+    "@types/supertest": "^6.0.3",
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
     "supertest": "^7.1.0",
+    "ts-jest": "^29.3.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.2"
