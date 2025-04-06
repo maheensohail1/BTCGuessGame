@@ -12,13 +12,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const dbService_1 = require("../services/dbService");
 const router = (0, express_1.Router)();
+/**
+ * GET /score/:playerId
+ * Retrieves the score for the specified player.
+ * If no score is found, it returns 0 by default.
+ */
 router.get("/:playerId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const { playerId } = req.params;
+    // Fetch the player's score from DynamoDB using the playerId as the key
     const result = yield dbService_1.dynamoDB.get({
         TableName: dbService_1.TABLE_NAME,
         Key: { playerId },
     }).promise();
+    // Return the score if it exists, otherwise return 0
     res.json({ score: ((_a = result.Item) === null || _a === void 0 ? void 0 : _a.score) || 0 });
 }));
 exports.default = router;
