@@ -16,7 +16,13 @@ const express_1 = require("express");
 const axios_1 = __importDefault(require("axios"));
 const router = (0, express_1.Router)();
 router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    fetchBTCPrice();
+    const price = yield fetchBTCPrice();
+    if (price !== null) {
+        res.json({ price });
+    }
+    else {
+        res.status(503).json({ message: "Service Unavailable" });
+    }
 }));
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fetchBTCPrice = () => __awaiter(void 0, void 0, void 0, function* () {

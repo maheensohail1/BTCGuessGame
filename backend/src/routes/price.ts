@@ -10,6 +10,7 @@ router.get("/", async (_req: Request, res: Response) => {
   } else {
     res.status(503).json({ message: "Service Unavailable" });
   }
+  
 });
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
