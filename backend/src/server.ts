@@ -19,13 +19,14 @@ app.use(express.json());
 app.use(cors());
 
 // Serve static files from frontend/dist
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 // Fallback to index.html for React Router routes
 app.get("/", (_, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+  res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
 });
 
+console.log(path.join(__dirname, "../../frontend/dist"));
 
 app.use("/guess", guessRoutes);
 app.use("/score", scoreRoutes);
