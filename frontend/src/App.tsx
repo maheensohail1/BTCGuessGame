@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./screens/LoginPage";
 import GuessingPage from "./screens/GuessingPage";
 import { useState } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'font-awesome/css/font-awesome.min.css';
 /**
  * The root component that sets up routing and manages the shared state for the player ID.
  */

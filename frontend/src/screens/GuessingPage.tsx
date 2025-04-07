@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = ""; // Updated when deploying
+const API_URL = "http://localhost:5000"; // Updated when deploying
 
 /**
  * Props passed to GuessingPage
@@ -107,26 +107,49 @@ const GuessingPage = ({ playerId }: GuessingPageProps) => {
         navigate("/");
     };
     return (
-        <div>
-            <h1>Bitcoin Price Predictor</h1>
-            <p>Current Price: {price ? `$${price}` : "Loading..."}</p>
-            <p>Your Score: {score}</p>
-            <button onClick={() => makeGuess("up")} disabled={!!guess}>Guess Up</button>
-            <button onClick={() => makeGuess("down")} disabled={!!guess}>Guess Down</button>
-            {guess && <p>Waiting for 60 seconds...</p>}
+<div className="d-flex justify-content-center align-items-center vh-100">
+            <div className="container text-center">
+                <h1 className="mb-4">Bitcoin Price Predictor</h1>
+                <p className="lead">Current Price: {price ? `$${price}` : "Loading..."}</p>
+                <p className="lead">Your Score: {score}</p>
 
-            {/* Show message after guess resolution */}
-            {message && (
-                <div>
-                    <h3>Result: </h3>
-                    <p>{message}</p>
+                <div className="row justify-content-center">
+                    <div className="col-md-3 mb-2">
+                        <button
+                            className="btn btn-success w-100"
+                            onClick={() => makeGuess("up")}
+                            disabled={!!guess}
+                        >
+                            <i className="fa fa-arrow-up"></i>
+                        </button>
+                    </div>
+                    <div className="col-md-3 mb-2">
+                        <button
+                            className="btn btn-danger w-100"
+                            onClick={() => makeGuess("down")}
+                            disabled={!!guess}
+                        >
+                            <i className="fa fa-arrow-down"></i> 
+                        </button>
+                    </div>
                 </div>
-            )}
-            <br />
 
-            <button onClick={handleLogout}>Logout</button>
+                {guess && <p className="mt-3">Waiting for 60 seconds...</p>}
+
+                {message && (
+                    <div className="alert alert-info mt-4">
+                        <h3>Result: </h3>
+                        <p>{message}</p>
+                    </div>
+                )}
+
+                <div className="mt-4">
+                    <button className="btn btn-primary" onClick={handleLogout}>
+                        Logout
+                    </button>
+                </div>
+            </div>
         </div>
-        
     );
 };
 

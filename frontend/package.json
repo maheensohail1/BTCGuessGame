@@ -15,10 +15,13 @@
   },
   "dependencies": {
     "axios": "^1.8.4",
-    "typescript": "^5.7.2",
+    "bootstrap": "^5.3.5",
+    "font-awesome": "^4.7.0",
     "react": "^19.0.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.5.0",
+    "typescript": "^5.7.2",
     "vite": "^6.2.0"
   },
   "devDependencies": {
@@ -32,6 +35,5 @@
     "globals": "^15.15.0",
     "rollup": "^4.39.0",
     "typescript-eslint": "^8.24.1"
-    
   }
 }
