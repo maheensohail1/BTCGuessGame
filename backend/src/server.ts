@@ -8,6 +8,7 @@ import path from "path";
 import priceRoutes from "./routes/price";
 import guessRoutes from "./routes/guess";
 import scoreRoutes from "./routes/score";
+import history from "connect-history-api-fallback";
 // import connectDB from "./services/dbService"; // Uncomment if using MongoDB connection
 
 // Load environment variables from .env file
@@ -18,7 +19,8 @@ const app = express();
 app.use(express.json());
 // Enable CORS for cross-origin requests (e.g., frontend to backend)
 app.use(cors());
-
+// Use history fallback **before** static files
+app.use(history());
 // Serve static files (React build) from frontend/dist
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
