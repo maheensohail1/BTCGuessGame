@@ -22,7 +22,7 @@ app.use((0, cors_1.default)());
 // Serve static files (React build) from frontend/dist
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../frontend/dist")));
 // Fallback to index.html for React Router routes
-app.get("*", (_, res) => {
+app.get("/", (_, res) => {
     res.sendFile(path_1.default.join(__dirname, "../../frontend/dist", "index.html"));
 });
 // API Routes
