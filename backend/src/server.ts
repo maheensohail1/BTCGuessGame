@@ -23,7 +23,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 // Fallback to index.html for React Router routes
-app.get("/", (_, res) => {
+app.get("*", (_, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
 });
 

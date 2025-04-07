@@ -1,22 +1,8 @@
 import AWS from "aws-sdk";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
 
 dotenv.config();
-// const MONGO_URI = process.env.MONGO_URI;
 
-// const connectDB = async () => {
-//     try {
-//         await mongoose.connect(MONGO_URI!);
-//         console.log("MongoDB connected successfully! 🚀");
-//     } catch (error) {
-//         console.error("Error connecting to MongoDB:", error);
-//         process.exit(1); // Exit the app if DB connection fails
-//     }
-// };
-
-// export default connectDB;
-console.log(process.env.AWS_ACCESS_KEY_ID + "ewfefw")
 AWS.config.update({
     region: "us-east-1", // Change based on your AWS setup
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
