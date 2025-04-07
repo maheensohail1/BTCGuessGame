@@ -33,19 +33,27 @@ const LoginPage = ({ setPlayerId }: LoginPageProps) => {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
-            <p>Welcome! If this is your first time, simply enter a new Player ID to get started.</p>
-            <label>
-                Enter Player ID:
-                <input 
-                    type="text" 
-                    value={playerIdInput} 
-                    onChange={(e) => setPlayerIdInput(e.target.value)} 
-                    placeholder="Enter your player ID" 
-                />
-            </label>
-            <button onClick={handleLogin}>Login</button>
+        <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+            <div className="card p-4 shadow-lg" style={{ maxWidth: "400px", width: "100%" }}>
+                <h2 className="text-center mb-4">Login</h2>
+                <p className="text-center mb-4">Welcome! If this is your first time, simply enter a new Player ID to get started.</p>
+                <div className="mb-3">
+                    <label htmlFor="playerId" className="form-label">Enter Player ID:</label>
+                    <input 
+                        id="playerId"
+                        type="text" 
+                        value={playerIdInput} 
+                        onChange={(e) => setPlayerIdInput(e.target.value)} 
+                        className="form-control" 
+                        placeholder="Enter your player ID" 
+                    />
+                </div>
+                <button 
+                    onClick={handleLogin} 
+                    className="btn btn-primary w-100">
+                    Login
+                </button>
+            </div>
         </div>
     );
 };

@@ -28,6 +28,15 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Ensures content is centered */
+  align-items: center; /* Centers the content vertically */
 }
 
 h1 {

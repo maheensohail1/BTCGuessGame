@@ -16,12 +16,14 @@ const App = () => {
 
     return (
         <Router>
-            <Routes>
-            {/* Route for the login screen */}
-            <Route path="/" element={<LoginPage setPlayerId={setPlayerId} />} />
-             {/* Route for the guessing game screen; playerId is passed as a prop */}
-            <Route path="/guessing" element={<GuessingPage playerId={playerId} />} />
-            </Routes>
+            <div style={{ height: "100%", width: "100%"}}>
+                <Routes>
+                    {/* Route for the login screen */}
+                    <Route path="/" element={<LoginPage setPlayerId={setPlayerId} />} />
+                    {/* Route for the guessing game screen; playerId is passed as a prop */}
+                    <Route path="/guessing" element={<GuessingPage playerId={playerId} />} />
+                </Routes>
+            </div>
         </Router>
     );
 };
