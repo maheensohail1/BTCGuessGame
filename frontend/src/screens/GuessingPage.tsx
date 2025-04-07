@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5000"; // Updated when deploying
+const API_URL = ""; // Updated when deploying
 
 /**
  * Props passed to GuessingPage
