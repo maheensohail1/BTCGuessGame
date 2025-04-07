@@ -8,7 +8,10 @@ import { useState } from "react";
  */
 const App = () => {
 // Global state to store the current player's ID, shared across pages
-    const [playerId, setPlayerId] = useState<string | null>(null);
+    const [playerId, setPlayerId] = useState<string | null>(() => {
+        return localStorage.getItem("playerId");
+    });
+  
 
     return (
         <Router>

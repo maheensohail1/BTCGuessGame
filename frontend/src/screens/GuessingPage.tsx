@@ -30,15 +30,15 @@ const GuessingPage = ({ playerId }: GuessingPageProps) => {
      */
     useEffect(() => {
         if(playerId){
-        fetchPrice();
-        fetchScore();
-        const priceInterval = setInterval(fetchPrice, 60000); // Fetch the latest price every 1 minute
-        
-        return () => {
-            // Cleanup interval on component unmount
-            clearInterval(priceInterval); 
-        };
-    }
+            fetchPrice();
+            fetchScore();
+            const priceInterval = setInterval(fetchPrice, 60000); // Fetch the latest price every 1 minute
+            
+            return () => {
+                // Cleanup interval on component unmount
+                clearInterval(priceInterval); 
+            };
+        }
     }, [playerId]);
     /**
      * Fetches the current Bitcoin price from the backend API.
@@ -103,7 +103,8 @@ const GuessingPage = ({ playerId }: GuessingPageProps) => {
      * Logs the player out and navigates back to the login screen.
      */
     const handleLogout = () => {
-        navigate("/");  // Redirect to login
+        localStorage.removeItem("playerId");
+        navigate("/");
     };
     return (
         <div>

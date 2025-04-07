@@ -23,6 +23,8 @@ const LoginPage = ({ setPlayerId }: LoginPageProps) => {
      */
     const handleLogin = () => {
         if (playerIdInput.trim()) {
+            
+            localStorage.setItem("playerId", playerIdInput); 
             setPlayerId(playerIdInput); // Save entered player ID to app state
             navigate("/guessing");      // Navigate to guessing game page
         } else {
