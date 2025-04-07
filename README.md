@@ -101,17 +101,53 @@ Make sure you have the following installed:
 
 ## Tests
 
-### Frontend Tests:
+### backend Tests:
 1. Navigate to the `backend` directory:
    ```bash
    cd backend
 
-2. Run the frontend tests:
+2. Run the backend tests:
   npm test
 
 These tests will ensure that the API endpoints function correctly, particularly the logic for handling price fetching, guess submission, and score calculation.
+
+## Deployment
+
+### Deploying to Heroku:
+
+1. **Build the Project:**
+
+   Run the following command to create a production-ready build:
+
+   ```bash
+   npm run build
+
+2. **Push to Git Repository:**
+   Commit and push your changes to your Git repository:
+
+   ```bash
+   git add .
+   git commit -m "Prepare for deployment"
+   git push origin main
+
+3. **Deploy to Heroku:**
+   Ensure that you have the Heroku CLI installed. Then, run the following commands:
+   
+   Log in to Heroku (if not logged in):
+   ```bash
+   heroku login
+
+   Create a Heroku app (if not created yet):
+   ```bash
+   heroku create your-app-name
+
+   Push to Heroku:
+   ```bash
+   git push heroku main
+
 
 ## Acknowledgments
 
 - **CoinGecko**: For providing free access to Bitcoin price data via their API.
 - **Open Source Community**: For providing various useful libraries and tools used in this project.
+
